@@ -8,8 +8,7 @@ permissions:
   contents: read
   
 env:
-  S3_BUCKET_NAME: be-0-name
-
+  S3_BUCKET_NAME: be-54-yelm-212
 jobs:
   build:
 
@@ -33,7 +32,6 @@ jobs:
       shell: bash
     
     # Access Key와 Secret Access Key를 통해 권한을 확인합니다.
-    # 아래 코드에 Access Key와 Secret Key를 직접 작성하지 않습니다.
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -43,4 +41,4 @@ jobs:
     
     # 압축한 프로젝트를 S3로 전송합니다.
     - name: Upload to S3
-      run: aws s3 cp --region ap-northeast-2 ./practice-deploy.zip s3://arn:aws:s3:::be-54-yelm-212/practice-deploy.zip
+      run: aws s3 cp --region ap-northeast-2 ./practice-deploy.zips3://$S3_BUCKET_NAME/practice-deploy.zip
